@@ -17,38 +17,24 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-const heading1 = React.createElement(
-  "h1",
-  {
-    id: "heading1",
-  },
-  "Hello heading 1 using Parcel"
+//JSX
+const heading = (
+    <h1 id="title1" key="heading1" className="heading2">
+      Hello, React JS.
+    </h1>
 );
 
-const heading2 = React.createElement(
-  "h2",
-  {
-    id: "heading2",
-  },
-  "Hello heading 2..."
-);
+//Components
 
-const heading3 = React.createElement(
-  "h3",
-  {
-    id: "heading3",
-  },
-  "Hello heading 3..."
-);
-
-const div = React.createElement(
-  "div",
-  {
-    id: "container",
-  },
-  [heading1, heading2, heading3]
-);
+const HeadingComponent = () => {
+  return (
+    <div>
+      {heading}
+      <h3>Hello World, I am learning React Js</h3>
+    </div>
+  );
+};
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render([div]);
+root.render(<HeadingComponent />);
