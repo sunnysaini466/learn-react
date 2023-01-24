@@ -14,8 +14,7 @@
 img {
   width: 150px;
 }
-.card:hover {
-}
+
 .header {
   border: 1px solid whitesmoke;
   padding: 5px;
@@ -28,7 +27,7 @@ img {
   margin: 10px;
 }
 .card > img {
-  width: 100%;
+  width: 350px;
 }
 .card > h2 {
   font-size: 17px;

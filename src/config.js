@@ -1,17 +1,10 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
+export const LOGO_CDN_URL =
+  "https://lh3.googleusercontent.com/p/AF1QipO_6cTc3QdC9L2vAOyCkUPG-G-9YeFxo3YiDu3R=w1080-h608-p-no-v0";
 
-//JSX
-const Title = () => {
-  return (
-    <img
-      alt="food villa"
-      src="https://lh3.googleusercontent.com/p/AF1QipO_6cTc3QdC9L2vAOyCkUPG-G-9YeFxo3YiDu3R=w1080-h608-p-no-v0"
-    />
-  );
-};
+export const IMG_CDN_URL =
+  "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
 
-const restaurantList = [
+export const restaurantList = [
   {
     type: "restaurant",
     data: {
@@ -1002,82 +995,3 @@ const restaurantList = [
     subtype: "basic",
   },
 ];
-//Components
-
-const RestraurantCard = ({
-  cloudinaryImageId,
-  name,
-  cuisines,
-  lastMileTravelString,
-}) => {
-  //destructuring
-  //const {cloudinaryImageId,name,cuisines,lastMileTravelString} = restaurantList.data;
-
-  return (
-    <div className="card">
-      <img
-        src={
-          "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" +
-          cloudinaryImageId
-        }
-        alt={name}
-      />
-      <h2>{name}</h2>
-      <h3>{cuisines.join(", ")}</h3>
-      <h4>{lastMileTravelString}</h4>
-    </div>
-  );
-};
-
-const Header = () => {
-  return (
-    <div className="header">
-      <Title />
-      <div className="nav-items">
-        <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
-          <li>Cart</li>
-        </ul>
-      </div>
-    </div>
-  );
-};
-
-const Body = () => {
-  return (
-    <div className="res-card">
-      {restaurantList.map((restaurant) => {
-        return (
-          <RestraurantCard {...restaurant.data} key={restaurant.data.id} />
-        );
-      })}
-
-      {/* <RestraurantCard {...restaurantList[0].data}/>
-      <RestraurantCard {...restaurantList[1].data}/>
-      <RestraurantCard {...restaurantList[2].data}/>
-      <RestraurantCard {...restaurantList[3].data}/>
-      <RestraurantCard {...restaurantList[4].data}/>
-      <RestraurantCard {...restaurantList[5].data}/> */}
-    </div>
-  );
-};
-
-const Footer = () => {
-  return <h2>Footer</h2>;
-};
-
-const AppLayout = () => {
-  return (
-    <>
-      <Header />
-      <Body />
-      <Footer />
-    </>
-  );
-};
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-
-root.render(<AppLayout />);
