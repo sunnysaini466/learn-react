@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { LOGO_CDN_URL } from "../config";
+import Logo from "../assets/img/food-villa.png";
+import { Link } from "react-router-dom";
 
 export const Title = () => {
-  return <img alt="food villa" src={LOGO_CDN_URL} />;
+  return <img alt="food villa" src={Logo} />;
 };
 
 const Header = () => {
@@ -15,9 +16,16 @@ const Header = () => {
       <button onClick={() => setTitle("Sunny food app")}>Click Here</button> */}
       <div className="nav-items">
         <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
+          <Link to="/">
+            <li>Home</li>
+          </Link>
+          <Link to="/about">
+            <li>About</li>
+          </Link>
+          <Link to="/contact">
+            <li>Contact</li>
+          </Link>
+
           <li>Cart</li>
         </ul>
       </div>

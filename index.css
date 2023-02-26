@@ -49,3 +49,15 @@ img {
   flex-wrap: wrap;
   justify-content: space-between;
 }
+.shimmer-card {
+  width: 350px;
+  height: 350px;
+  background-color: lightgray;
+  padding: 10px;
+  margin: 10px;
+}
+.menu-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
