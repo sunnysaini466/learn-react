@@ -22,7 +22,9 @@ const RestaurantMenu = () => {
     console.log(json.data.menu.items);
   }
 
-  return !restaurantDetails ? <Shimmer/>: (
+  return !restaurantDetails ? (
+    <Shimmer />
+  ) : (
     <>
       <div className="menu-card">
         <img
@@ -36,10 +38,9 @@ const RestaurantMenu = () => {
       <div>
         <h1>Menu</h1>
         <ul>
-        {Object.values(restaurantDetails?.menu?.items).map((item) => (
+          {Object.values(restaurantDetails?.menu?.items).map((item) => (
             <li key={item.id}>{item.name}</li>
-          ))
-        }
+          ))}
         </ul>
       </div>
     </>
