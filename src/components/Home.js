@@ -3,6 +3,9 @@ import Shimmer from "./Shimmer";
 import { restaurantList } from "../config";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import useGetAllRestaurant from "./Hooks/useGetAllRestaurant";
+import { Fetch_All_Restaurant } from "../config";
+import useIsOnline from "./Hooks/useIsOnline";
 
 function filterData(searchText, restaurants) {
   const filterData = restaurants.filter((restaurant) =>
@@ -13,30 +16,41 @@ function filterData(searchText, restaurants) {
 }
 
 const Home = () => {
-  const [allRestaurants, setAllRestaurants] = useState([]);
-  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
+  // const [allRestaurants, setAllRestaurants] = useState([]);
+  // const [filteredRestaurants, setFilteredRestaurants] = useState([]);
 
-  //console.log("render()")
+  //this is custom hook calling
+  const [
+    allRestaurants,
+    filteredRestaurants,
+    setAllRestaurants,
+    setFilteredRestaurants,
+  ] = useGetAllRestaurant();
 
-  useEffect(() => {
-    //console.log("calls when dependency is changed");
-    getRestaurants();
-  }, []);
+  //this is direct API calling in component
+  // useEffect(() => {
+  //   getRestaurants();
+  // }, []);
 
-  async function getRestaurants() {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.73057979999999&lng=77.7758825&page_type=DESKTOP_WEB_LISTING"
-    );
-    const json = await data.json();
-    console.log(json);
-    setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
-    setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards);
-  }
+  // async function getRestaurants() {
+  //   const data = await fetch(Fetch_All_Restaurant);
+  //   const json = await data.json();
+  //   console.log(json);
+  //   setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
+  //   setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards);
+  // }
 
   if (!allRestaurants) return null;
 
-  // if (filteredRestaurants?.length === 0) return <h1>No Restaurant founds</h1>;
+  //if (filteredRestaurants?.length === 0) return <h1>No Restaurant founds</h1>;
+
+  const isOnline = useIsOnline();
+
+  if (!isOnline)
+    return (
+      <h2>No Internet Connection. Please Check Your Internet Connection </h2>
+    );
 
   //conditional rendering
   return allRestaurants.length === 0 ? (

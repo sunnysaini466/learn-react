@@ -3,7 +3,13 @@ import Logo from "../assets/img/food-villa.png";
 import { Link } from "react-router-dom";
 
 export const Title = () => {
-  return <img alt="food villa" src={Logo} />;
+  return (
+    <>
+      <Link to="/">
+        <img alt="food villa" src={Logo} />
+      </Link>
+    </>
+  );
 };
 
 const Header = () => {
@@ -25,7 +31,9 @@ const Header = () => {
           <Link to="/contact">
             <li>Contact</li>
           </Link>
-
+          <Link to="/instamart">
+            <li>Instamart</li>
+          </Link>
           <li>Cart</li>
         </ul>
       </div>
