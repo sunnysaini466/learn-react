@@ -1,63 +1,53 @@
-.header {
-  display: flex;
-  justify-content: space-between;
-  margin: 10px;
-}
-.nav-items > ul {
-  list-style: none;
-  display: flex;
-}
-.nav-items > ul > li {
-  padding: 12px;
-  font-size: 18px;
-}
-img {
-  width: 150px;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container {
+  @apply mt-24 min-h-[77vh] min-w-full;
 }
 
-.header {
-  border: 1px solid whitesmoke;
-  padding: 5px;
-  box-shadow: 0 15px 40px -20px rgb(40 44 63 / 15%);
+.card-container {
+  @apply px-2.5 py-5 m-4 rounded-md overflow-hidden shadow bg-white;
+}
+.card-container-title {
+  @apply text-3xl leading-4 justify-center text-center font-bold;
+}
+.btn {
+  @apply h-[30px] dark:text-blue-800 rounded-md outline-none border border-yellow-200 text-base;
 }
 
-.card {
-  border: 1px solid black;
-  padding: 10px;
-  margin: 10px;
+.btn--primary {
+  @apply bg-yellow-200;
 }
-.card > img {
-  width: 350px;
+
+.btn--secondary {
+  @apply bg-white;
 }
-.card > h2 {
-  font-size: 17px;
-  font-weight: 500;
-  word-break: break-word;
+
+.nav--btn {
+  @apply w-20 h-8 rounded-md basis-16 bg-white  dark:text-blue-800 outline-none hover:bg-yellow-300 hover:text-blue-800 text-base;
 }
-.card > h3 {
-  color: #686b78;
-  font-size: 13px;
-  margin-top: 4px;
+
+.icon--i {
+  @apply text-white rounded-[2.6rem] flex text-[1.4rem] w-[2.6rem] h-[2.6rem] leading-[3rem] text-center select-none mt-0 mr-[5px] mb-2.5;
 }
-.card > h4 {
-  color: #686b78;
-  font-size: 13px;
-  margin-top: 4px;
+
+.shimmer-w60 {
+  @apply w-3/5 mt-2.5 h-[15px];
 }
-.res-card {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+
+.shimmer-w40 {
+  @apply w-2/5 mt-2.5 h-[15px];
 }
-.shimmer-card {
-  width: 350px;
-  height: 350px;
-  background-color: lightgray;
-  padding: 10px;
-  margin: 10px;
+
+.shimmer-w20 {
+  @apply w-1/5 mt-1 h-[15px];
 }
-.menu-card {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+
+.error-text {
+  @apply text-red-600 text-xs;
+}
+
+.active {
+  @apply left-0 w-[300px] h-[calc(100%-65px)] bg-white fixed top-[70px] flex-col py-0 pl-[30px];
 }

@@ -3,10 +3,16 @@ export const LOGO_CDN_URL =
 
 export const IMG_CDN_URL =
   "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
+ 
+export const Fetch_Menu_Restaurant = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.73057979999999&lng=77.7758825&restaurantId=";
 
-export const Fetch_Menu_Restaurant = "https://www.swiggy.com/dapi/menu/v4/full?lat=28.73057979999999&lng=77.7758825&menuId=";
+export const Fetch_All_Restaurant = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.73057979999999&lng=77.7758825&page_type=DESKTOP_WEB_LISTING";
 
-export const Fetch_All_Restaurant = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.73057979999999&lng=77.7758825&sortBy=RATING&page_type=DESKTOP_WEB_LISTING";
+
+/* Shimmer - Number of cards & items to be displayed */
+export const SHIMMER_RES_CARDS_COUNT = 15;
+export const SHIMMER_MENU_ITEMS_COUNT = 4;
+
 
 export const restaurantList = [
   {

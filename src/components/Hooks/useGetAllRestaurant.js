@@ -13,9 +13,9 @@ const useGetAllRestaurant = () => {
   async function getRestaurants() {
     const data = await fetch(Fetch_All_Restaurant);
     const json = await data.json();
-    console.log(json); 
-    setFilteredRestaurants(json?.data?.cards[0]?.data?.data?.cards);
-    setAllRestaurants(json?.data?.cards[0]?.data?.data?.cards);
+    console.log(json);  
+    setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
+    setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards);
   }
   return [allRestaurants, filteredRestaurants,setAllRestaurants,setFilteredRestaurants];
 };

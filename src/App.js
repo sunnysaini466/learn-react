@@ -8,7 +8,7 @@ import About from "./components/About";
 import Error from "./components/Error";
 import Contact from "./components/Contact";
 import Profile from "./components/Profile";
-import RestaurantMenu from "./components/RestaurantMenu";
+import RestaurantDetails from "./components/RestaurantDetails";
 //import Shimmer from "./components/Shimmer";
 
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
@@ -51,8 +51,8 @@ const appRouter = createBrowserRouter([
         element: <Contact />,
       },
       {
-        path: "/restaurant/:resID",
-        element: <RestaurantMenu />,
+        path: "/restaurant/:resId",
+        element: <RestaurantDetails />,
       },
       {
         path: "/instamart",

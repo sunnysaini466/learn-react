@@ -53,14 +53,13 @@ const Home = () => {
     );
 
   //conditional rendering
-  return allRestaurants.length === 0 ? (
-    <Shimmer />
-  ) : (
+  return (
     <>
-      <div className="search-container">
+      <div className="flex justify-center m-4">
         <input
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:bg-white"
           type="text"
-          placeholder="Search.."
+          placeholder="Enter the Text Here"
           name="search"
           value={searchText}
           onChange={(e) => {
@@ -69,6 +68,7 @@ const Home = () => {
         />
 
         <button
+          className="p-2 lg:px-4 md:mx-2 text-white rounded bg-indigo-600 hover:bg-gray-100 hover:text-indigo-600"
           type="submit"
           onClick={() => {
             const data = filterData(searchText, allRestaurants);
@@ -78,19 +78,23 @@ const Home = () => {
           Search
         </button>
       </div>
-
-      <div className="res-card">
-        {filteredRestaurants.map((restaurant) => {
-          return (
-            <Link
-              to={"/restaurant/" + restaurant.data.id}
-              key={restaurant.data.id}
-            >
-              <RestaurantCard {...restaurant.data} />
-            </Link>
-          );
-        })}
-      </div>
+      {allRestaurants.length === 0 ? (
+        <Shimmer />
+      ) : (
+        <div className="flex flex-wrap gap-5 justify-center">
+          {filteredRestaurants.map((restaurant) => {
+            return (
+              <Link
+                className="basis-[300px] p-2.5 mb-2.5 mob:basis-[150px]"
+                to={"/restaurant/" + restaurant.data.id}
+                key={restaurant.data.id}
+              >
+                <RestaurantCard {...restaurant.data} />
+              </Link>
+            );
+          })}
+        </div>
+      )}
     </>
   );
 };
